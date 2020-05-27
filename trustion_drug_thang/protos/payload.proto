@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+message SimpleSupplyPayload{
+    enum Action {
+        CREATE_USER = 0;
+        DRUG_IMPORT = 1;
+        GET_DRUG = 2;
+        UPDATE_STATUS = 3;
+        UPDATE_LOCATION = 4;
+
+        EMPLOYEE_IMPORT = 5;
+        COMPANY_IMPORT = 6;
+        GET_COMPANY = 7;
+        GET_EMPLOYEE = 8;
+        UPDATE_COMPANY = 9;
+        UPDATE_EMPLOYEE = 10;
+    }
+    Action action = 1;
+    uint64 timestamp = 2;
+    Create_User create_user = 3;
+    DrugImport drug_import=4;
+    GetDrug get_drug=5;
+    UpdateStatus update_status=6;
+    UpdateLocation update_location=7;
+
+    EmployeeImport employee_import=8;
+    CompanyImport company_import=9;
+    GetCompany get_company=10;
+    GetEmployee get_employee=11;
+    UpdateCompany update_company=12;
+    UpdateEmployee update_employee=13;
+}
+
+
+message DrugImport {
+    Role role = 1;
+    enum Role{
+        PATIENT = 0;
+    }
+    string id = 2;
+    string name = 3;
+}
+
+message EmployeeImport {
+    Role role = 1;
+    enum Role{
+        DIRECTOR = 0;
+    }
+    string id = 2;
+    string name = 3;
+    string age = 4;
+    string address = 5;
+    string email = 6;
+    string company_id = 7;
+}
+
+message CompanyImport {
+    Role role = 1;
+    enum Role{
+        ORG = 0;
+    }
+    string id = 2;
+    string name = 3;
+    string date = 4;
+    string address = 5;
+}
+
+message GetDrug {
+    string id = 1;
+}
+message GetCompany {
+    string id = 1;
+}
+message GetEmployee {
+    string id = 1;
+}
+message UpdateStatus {
+    Role role = 1;
+    enum Role{
+        PATIENT = 0;
+    }
+    string id = 2;
+    string quantity = 3;
+    string price = 4;
+}
+message UpdateLocation {
+    Role role = 1;
+    enum Role{
+        PATIENT = 0;
+    }
+    string id = 2;
+    string longitude = 3;
+    string latitude = 4;
+}
+
+message UpdateCompany {
+    Role role = 1;
+    enum Role{
+        ORG = 0;
+    }
+    string id = 2;
+    string address = 3;
+    string price_IPO = 4;
+}
+message UpdateEmployee {
+    Role role = 1;
+    enum Role{
+        DIRECTOR = 0;
+    }
+    string id = 2;
+    string position = 3;
+    string salary = 4;
+}
+
+message Create_User{
+    enum Role{
+        STOKE_KEEPER = 0;
+        NURSE = 1;
+        PATIENT = 2;
+        ORG = 3;
+        DIRECTOR = 4;
+    }
+    string username = 1;
+    Role role = 2;
+}
