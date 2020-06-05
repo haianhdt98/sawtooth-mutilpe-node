@@ -1,6 +1,6 @@
 ## Vai trò 
-Ứng dụng có tác dụng lưu mọi dữ liệu được tạo, update vào blockchain 
-Tạo multiple node bao gồm 5 node với node-0 là node đầu tiên và 4 node còn lại
+Ứng dụng có tác dụng lưu mọi dữ liệu được tạo, update vào blockchain. 
+Tạo multiple node bao gồm 5 node với node-0 là node đầu tiên và 4 node còn lại.
 
 ## Import api to postman
 
