@@ -1,17 +1,19 @@
 ## Vai trò 
 Ứng dụng có tác dụng lưu mọi dữ liệu được tạo, update vào blockchain 
+Tạo multiple node bao gồm 5 node với node-0 là node đầu tiên và 4 node còn lại
 
 ## Import api to postman
 
 url:
 ```
-https://www.getpostman.com/collections/b18dd8f421e78873b846
+https://www.getpostman.com/collections/9d559102705cd38087b8
 ```  
 ## Terminal1: deploy sawtooth network
 
 ```
 cd network/vChain/
-docker-compose up
+sudo docker-compose down
+sudo docker-compose up
 ```
 
 
@@ -19,7 +21,8 @@ docker-compose up
 
 ```
 cd trustion_drug_thang/
-docker-compose up 
+sudo docker-compose down
+sudo docker-compose up
 ```
 
 ## Test 
