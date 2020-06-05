@@ -17,12 +17,12 @@ services:
     networks:
       - vchain_vChain
 
-  supply-tp:
+  supply-tp-0:
     build:
         context: .
         dockerfile: ./processor/Dockerfile
     image: supply-tp
-    container_name: supply-tp-trustion_drug_thang
+    container_name: supply-tp-trustion_drug_thang-0
     volumes:
       - '.:/project/sawtooth-supply'
     depends_on:
@@ -33,7 +33,92 @@ services:
         tp -v -C tcp://validator:4004"
     networks:
       - vchain_vChain
-      
+
+  supply-tp-0:
+    build:
+        context: .
+        dockerfile: ./processor/Dockerfile
+    image: supply-tp
+    container_name: supply-tp-trustion_drug_thang-0
+    volumes:
+      - '.:/project/sawtooth-supply'
+    depends_on:
+      - shell
+    command: |
+      bash -c "
+        sleep 1
+        tp -v -C tcp://validator-0:4004"
+    networks:
+      - vchain_vChain
+
+  supply-tp-1:
+    build:
+        context: .
+        dockerfile: ./processor/Dockerfile
+    image: supply-tp
+    container_name: supply-tp-trustion_drug_thang-1
+    volumes:
+      - '.:/project/sawtooth-supply'
+    depends_on:
+      - shell
+    command: |
+      bash -c "
+        sleep 1
+        tp -v -C tcp://validator-1:4004"
+    networks:
+      - vchain_vChain
+
+  supply-tp-2:
+    build:
+        context: .
+        dockerfile: ./processor/Dockerfile
+    image: supply-tp
+    container_name: supply-tp-trustion_drug_thang-2
+    volumes:
+      - '.:/project/sawtooth-supply'
+    depends_on:
+      - shell
+    command: |
+      bash -c "
+        sleep 1
+        tp -v -C tcp://validator-2:4004"
+    networks:
+      - vchain_vChain
+
+  supply-tp-3:
+    build:
+        context: .
+        dockerfile: ./processor/Dockerfile
+    image: supply-tp
+    container_name: supply-tp-trustion_drug_thang-3
+    volumes:
+      - '.:/project/sawtooth-supply'
+    depends_on:
+      - shell
+    command: |
+      bash -c "
+        sleep 1
+        tp -v -C tcp://validator-3:4004"
+    networks:
+      - vchain_vChain
+
+  supply-tp-4:
+    build:
+        context: .
+        dockerfile: ./processor/Dockerfile
+    image: supply-tp
+    container_name: supply-tp-trustion_drug_thang-4
+    volumes:
+      - '.:/project/sawtooth-supply'
+    depends_on:
+      - shell
+    command: |
+      bash -c "
+        sleep 1
+        tp -v -C tcp://validator-4:4004"
+    networks:
+      - vchain_vChain
+
   supply-rest-api-trustion_drug_thang:
     build:
       context: .
@@ -50,7 +135,7 @@ services:
       bash -c "
         rest-api \
           -B supply-rest-api-trustion_drug_thang:8096 \
-          -C validator:4004\
+          -C validator-0:4004\
           --db-host postgres \
           -vv"
     networks:
